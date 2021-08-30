@@ -70,5 +70,36 @@ export default {
     vueI18n: {
       fallbackLocale: 'ja'
     }
+  },
+
+  router: {
+    extendRoutes (routes, resolve) {
+      routes.forEach(r => {
+        if (r.path.endsWith('/')) {
+          // "/" で終わっている場合は index.html を指定
+          r.path += 'index.html'
+        } else {
+          // それ以外はファイル名 + .html の形式になるため
+          // パス名を .html 付きに修正
+          r.path += '.html'
+        }
+      })
+      // CloudFront の仕様対応
+      // ドキュメントルートのみルートオブジェクトを追加
+      routes.push({
+        path: '/index.html',
+        alias: '/',
+        component: resolve(__dirname, 'pages/index.vue')
+      })
+    }
+  },
+
+  generate: {
+    routes: [
+      '/',
+      '/en',
+      '/subpage',
+      '/en/subpage'
+    ]
   }
 }
