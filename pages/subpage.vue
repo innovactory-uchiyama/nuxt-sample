@@ -5,7 +5,7 @@
       <canvas id="myCanvas" />
     </div>
     <div class="container">
-      <MessageCard vhtml="true" :message="$t('subPage')" />
+      <MessageCard :message="$t('subPage')" vhtml="true" />
     </div>
   </div>
 </template>

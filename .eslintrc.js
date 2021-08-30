@@ -14,7 +14,7 @@ module.exports = {
   ],
   plugins: [
   ],
-  ignorePatterns: ['*/*example.js'],
+  ignorePatterns: ['*test.js'],
   rules: {
     'vue/singleline-html-element-content-newline': 'off',
     'arrow-parens': 'off',
