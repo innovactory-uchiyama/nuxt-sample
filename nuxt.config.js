@@ -92,14 +92,5 @@ export default {
         component: resolve(__dirname, 'pages/index.vue')
       })
     }
-  },
-
-  generate: {
-    routes: [
-      '/',
-      '/en',
-      '/subpage',
-      '/en/subpage'
-    ]
   }
 }
