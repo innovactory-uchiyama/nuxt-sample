@@ -1,6 +1,6 @@
 {
     "top": "メインページ",
-    "subPage": "2つ目のページ",
+    "subPage": "<a href=\"https://threejs.org/examples/#webgl_postprocessing_sobel\">マウスドラッグで動きます</a>",
     "changeLang": "English",
     "changeToLocale": "en"
 }

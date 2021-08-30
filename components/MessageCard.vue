@@ -2,7 +2,10 @@
 <template>
   <div>
     <div class="message">
-      <div>{{ message }}</div>
+      <!-- v-htmlはXSSの危険性があるためlintで警告が出る -->
+      <!-- eslint-disable-next-line vue/no-v-html -->
+      <div v-if="vhtml" v-html="message" />
+      <div v-else>{{ message }}</div>
     </div>
   </div>
 </template>
@@ -13,6 +16,9 @@ export default {
     message: {
       type: String,
       required: true
+    },
+    vhtml: {
+      type: Boolean
     }
   }
 }
