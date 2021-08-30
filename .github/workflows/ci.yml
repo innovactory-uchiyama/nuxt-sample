@@ -44,11 +44,11 @@ jobs:
       - name: Generate static files
         run: npm run generate
 
-      - name: ls
-        run: ls ${{ github.workspace }}/dist
-
       - name: Generate static files
         run: npm run generate
+
+      - name: ls
+        run: ls ${{ github.workspace }}/dist
 
       - name: Deploy 
         env:

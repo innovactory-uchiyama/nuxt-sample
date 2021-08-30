@@ -59,7 +59,7 @@ export default {
   },
 
   i18n: {
-    baseUrl: 'https://example.com',
+    baseUrl: 'https://uchiyama-pagetest.s3.ap-northeast-1.amazonaws.com',
     locales: [
       { code: 'ja', name: 'Japanese', iso: 'ja_JP', file: 'ja.json' },
       { code: 'en', name: 'English', iso: 'en-US', file: 'en.json' }
