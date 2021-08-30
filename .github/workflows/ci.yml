@@ -4,11 +4,9 @@ on:
   push:
     branches:
       - main
-      - master
   pull_request:
     branches:
       - main
-      - master
 
 jobs:
   ci:
@@ -42,4 +40,20 @@ jobs:
 
       - name: Run linter 👀
         run: npm run lint
+
+      - name: Generate static files
+        run: npm run generate
+
+      - name: ls
+        run: ls ${{ github.workspace }}/dist
+
+      - name: Generate static files
+        run: npm run generate
+
+      - name: Deploy 
+        env:
+          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        run: |
+          aws s3 cp --recursive --region ap-northeast-1 ${{ github.workspace }}/dist s3://uchiyama-pagetest
 
