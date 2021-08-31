@@ -1,31 +1,31 @@
 <template>
-  <nav>
+  <header>
     <div class="header">
-      <NuxtLink :to="localePath('/')">
-        Top😺
-      </NuxtLink>
-      <button>
-        <nuxt-link :to="switchLocalePath($t('changeToLocale'))">
-          {{ $t('changeLang') }}
-        </nuxt-link>
-      </button>
-      <div class="header-container">
-        <NuxtLink
-          v-for="content in headerContents"
-          :key="content.text"
-          :to="localePath(content.to)"
-          class="header-menu"
-        >
-          {{ content.text }}
-        </NuxtLink>
-      </div>
+      <NuxtLink :to="localePath('/')"> Top😺 </NuxtLink>
+      <nav>
+        <button>
+          <nuxt-link :to="switchLocalePath($t('changeToLocale'))">
+            {{ $t("changeLang") }}
+          </nuxt-link>
+        </button>
+        <div class="navigation-container">
+          <NuxtLink
+            v-for="content in headerContents"
+            :key="content.text"
+            :to="localePath(content.to)"
+            class="navigation-menu"
+          >
+            {{ content.text }}
+          </NuxtLink>
+        </div>
+      </nav>
     </div>
-  </nav>
+  </header>
 </template>
 
 <script>
 export default {
-  data () {
+  data() {
     return {
       headerContents: [
         {
@@ -43,7 +43,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import '~/assets/css/const.scss';
+@import "~/assets/css/const.scss";
 
 .header {
   background: lightblue;
@@ -52,13 +52,15 @@ export default {
   display: flex;
 }
 
-.header-container {
+.navigation-container {
   padding-right: 50px;
   position: absolute;
   right: 0;
+  top: 0;
+  margin-top: 10px;
 }
 
-.header-menu {
+.navigation-menu {
   font-size: $headline2Size;
   font-family: $headerFont;
   text-decoration: unset;

@@ -2,7 +2,7 @@
   <div>
     <!-- components/内に配置したコンポーネントを描画 -->
     <HeaderMenu />
-    <div>
+    <main>
       <div class="canvas-container">
         <canvas id="myCanvas" />
       </div>
@@ -10,7 +10,7 @@
         <!-- locales/内の言語ファイル毎に対応する文字列を$t('key')の形式で呼び出す -->
         <MessageCard :message="$t(messageKey)" />
       </div>
-    </div>
+    </main>
   </div>
 </template>
 
