@@ -7,8 +7,8 @@
         <canvas id="myCanvas" />
       </div>
       <div class="container">
-        <!-- locales/内の言語毎に対応する文字列を$t('key')の形式で呼び出す -->
-        <MessageCard :message="$t('top')" />
+        <!-- locales/内の言語ファイル毎に対応する文字列を$t('key')の形式で呼び出す -->
+        <MessageCard :message="$t(messageKey)" />
       </div>
     </div>
   </div>
@@ -18,13 +18,13 @@
 // threejsのサンプルコードから描画開始の関数をインポート
 import { init } from '~/assets/js/threejs_test'
 
-// .vueファイルのexport defaultでdata()等の予約済の名称で
+// .vueファイルのexport defaultでmounted()等の予約済の名称で
 // 関数を指定するとライフサイクルイベントに対応した処理等を実行できる
 export default {
-  // DOM描画前に発火するライフサイクルイベント
+  // コンポーネントが持つデータオブジェクトを返す関数
   data () {
     return {
-      messageText: 'This is main page'
+      messageKey: 'top'
     }
   },
   head () {

@@ -5,7 +5,7 @@
       <canvas id="myCanvas" />
     </div>
     <div class="container">
-      <MessageCard :message="$t('subPage')" vhtml="true" />
+      <MessageCard :message="$t('subPage')" :vhtml="true" />
     </div>
   </div>
 </template>
@@ -14,6 +14,7 @@
 import { init, animate } from '~/assets/js/threejs_2test'
 
 export default {
+  name: 'Subpage',
   head () {
     return this.$nuxtI18nHead({ addSeoAttributes: true })
   },

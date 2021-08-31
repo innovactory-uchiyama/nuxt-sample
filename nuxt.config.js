@@ -53,15 +53,15 @@ export default {
   build: {
     extend (config, ctx) {
       if (ctx.isDev) {
-        config.devtool = 'source-map'
+        config.devtool = ctx.isClient ? 'source-map' : 'inline-source-map'
       }
     }
   },
 
   i18n: {
-    baseUrl: 'https://uchiyama-pagetest.s3.ap-northeast-1.amazonaws.com',
+    baseUrl: 'https://d3oimq7oriajj.cloudfront.net',
     locales: [
-      { code: 'ja', name: 'Japanese', iso: 'ja_JP', file: 'ja.json' },
+      { code: 'ja', name: 'Japanese', iso: 'ja-JP', file: 'ja.json' },
       { code: 'en', name: 'English', iso: 'en-US', file: 'en.json' }
     ],
     defaultLocale: 'ja',
