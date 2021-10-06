@@ -1,7 +1,6 @@
-name: ci
+name: lint
 
-on:
-  push
+on: [pull_request]
 
 jobs:
   ci:
@@ -34,21 +33,14 @@ jobs:
         run: npm ci --prefer-offline --no-audit
 
       - name: Run linter 👀
-        run: npm run lint
-
-      - name: Generate static files
-        run: npm run generate
+        uses: reviewdog/action-eslint@v1
+        with:
+          github_token: ${{ secrets.github_token }}
+          reporter: github-pr-review
+          eslint_flags: '**/*.{js,vue}'
 
       - name: Generate static files
         run: npm run generate
 
       - name: ls
         run: ls ${{ github.workspace }}/dist
-
-      - name: Deploy 
-        env:
-          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
-          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-        run: |
-          aws s3 cp --recursive --region ap-northeast-1 ${{ github.workspace }}/dist s3://uchiyama-pagetest
-
